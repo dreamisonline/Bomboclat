@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FestFlow Control Panel</title>
+
+  <link rel="stylesheet" href="leaflet/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<img src="logo.png" class="app-logo">
+<!-- ROLE SELECT -->
+<div id="roleScreen" class="center">
+  <h2>FestFlow</h2>
+  <button class="place-btn" onclick="enterAdmin()">Admin</button>
+  <button class="place-btn" onclick="enterVolunteer()">Volunteer</button>
+</div>
+
+<!-- VOLUNTEER REG -->
+<div id="volScreen" class="center hidden">
+  <h3>Volunteer Registration</h3>
+
+  <div class="input-group">
+    <input class="input-clean" id="vName" placeholder="Name">
+  </div>
+
+  <div class="input-group">
+    <input class="input-clean" id="vPhone" placeholder="Phone">
+  </div>
+
+  <div class="input-group">
+    <input class="input-clean" id="vSkills" placeholder="Skills">
+  </div>
+
+  <button class="place-btn" onclick="registerVolunteer()">Register</button>
+</div>
+
+<!-- ADMIN -->
+<div id="adminScreen" class="hidden">
+
+  <button class="toggle" onclick="toggleSidebar()">☰</button>
+
+  <div class="sidebar" id="sidebar">
+
+    <h3>Admin Dashboard</h3>
+
+  
+    <h4>Create Work</h4>
+
+    <div class="input-group">
+      <input class="input-clean" id="workTitle" placeholder="Work Title">
+    </div>
+
+    <div class="input-group">
+      <input class="input-clean" id="workDesc" placeholder="Description">
+    </div>
+
+    <button class="place-btn" onclick="showToast('Click map to place work')">
+      Place Work
+    </button>
+
+    <h4>Works</h4>
+    <div id="workList"></div>
+
+    <h4>Volunteers</h4>
+
+
+<select id="skillFilter" class="input-clean" onchange="filterVolunteers()">
+  <option value="all">All Volunteers</option>
+  <option value="medical">Medical</option>
+  <option value="logistics">Logistics</option>
+  <option value="coordination">Coordination</option>
+  <option value="security">Security</option>
+  <option value="tech">Tech</option>
+  <option value="support">Support</option>
+</select>
+
+    <div id="volList"></div>
+
+  </div>
+
+  <div id="map"></div>
+
+</div>
+
+<script src="leaflet/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
